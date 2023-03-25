@@ -1,7 +1,11 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Run all configuration after a change with ':PackerRe'
-vim.api.nvim_create_user_command('PackerRe', function() vim.cmd(':PackerCompile :PackerClean :PackerInstall') end, {})
+-- Reconfigure after a change with ':PackerRe' (as suggested in 'packer-intro-quickstart')
+vim.api.nvim_create_user_command('PackerRe', function()
+  vim.cmd('PackerCompile')
+  vim.cmd('PackerClean')
+  vim.cmd('PackerInstall')
+end, {})
 
 -- Start
 return require('packer').startup(function(use)
@@ -39,8 +43,10 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Gifts from god
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
+  use { 'tpope/vim-commentary' }
 
   -- Plugin manager Packer (wbthomason/packer.nvim)
 
