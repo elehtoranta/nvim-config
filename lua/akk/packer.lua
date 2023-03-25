@@ -39,11 +39,11 @@ return require('packer').startup(function(use)
     }
   }
 
+  use { 'tpope/vim-fugitive' }
+  use { 'tpope/vim-surround' }
+
   -- Plugin manager Packer (wbthomason/packer.nvim)
 
-  --  use 'morhetz/gruvbox'
-  --  use 'tpope/vim-fugitive'
-  --  use 'tpope/vim-surround'
   --  use 'scrooloose/nerdtree'
   --  use 'scrooloose/nerdcommenter'
   --  use 'airblade/vim-gitgutter'

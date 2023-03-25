@@ -19,13 +19,13 @@ map('n', '<S-j>', 'jzz')
 map('n', '<S-k>', 'kzz')
 
 -- Close buffer
-map('n', '<leader>bd', ':bd<CR>')
+map('n', '<leader>bb', ':bd<CR>')
 
 -- Split current window to right and focus it with SHIFT+CTRL+Right.
 map('', '<C-S-Right>', ':vsplit<CR><C-W>l')
 
 -- Add :Explore for file navigation
-map('n', '<leader>e', ':Explore<CR>')
+map('n', '<leader>e', ':Rexplore<CR>')
 
 map('n', '<Leader>q', ':q<CR>')
 
