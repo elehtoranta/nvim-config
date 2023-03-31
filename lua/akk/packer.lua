@@ -20,6 +20,8 @@ return require('packer').startup(function(use)
 
   use { 'ellisonleao/gruvbox.nvim' }
 
+  -- use { 'folke/zen-mode.nvim' }
+
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',

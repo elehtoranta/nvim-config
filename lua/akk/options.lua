@@ -38,7 +38,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- Whitespace formatting. Helps noticing style errors. Multispace
--- added mainly to differentiate space indenting from tabs.
+-- added mainly to differentiate space indenting from tabs. (.py)
 opt.list = true
 opt.listchars = { trail = '~', tab = '>-', multispace = '---+', lead = ' ' }
 
@@ -57,4 +57,7 @@ opt.updatetime = 50
 
 -- Length of wait between sequential map keystrokes
 opt.timeout = true
-opt.timeoutlen = 300
+opt.timeoutlen = 350
+
+-- Completion popup menu (pum) max height
+opt.pumheight = 10

@@ -6,9 +6,9 @@ local lsp = require('lsp-zero').preset({
 })
 
 lsp.ensure_installed({
+  'clangd',
   'tsserver',
   'rust_analyzer',
-  'clangd',
 })
 
 lsp.nvim_workspace()

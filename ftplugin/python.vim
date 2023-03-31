@@ -1,1 +1,1 @@
-set listchars=trail:~,tab:-<,multispace:---+
+setlocal listchars=trail:~,tab:-<,multispace:---+
