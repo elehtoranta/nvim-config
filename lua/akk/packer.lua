@@ -10,53 +10,42 @@ end, {})
 -- Start
 return require('packer').startup(function(use)
 
-  use { 'wbthomason/packer.nvim' }
+  use 'wbthomason/packer.nvim' -- Package manager
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
 
-  use { 'ellisonleao/gruvbox.nvim' }
+  use 'ellisonleao/gruvbox.nvim'
 
   -- use { 'folke/zen-mode.nvim' }
 
+  -- Completion
+
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/nvim-cmp'
+
+  -- Tool configuration
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
+    'williamboman/mason.nvim', run = ':MasonUpdate',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig', -- LSP preset configurations
   }
+
+  -- Snip snip
+  use ({'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*', run = 'make install_jsregexp'})
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- Gifts from god
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
-  use { 'tpope/vim-commentary' }
 
-  -- Plugin manager Packer (wbthomason/packer.nvim)
-
-  --  use 'scrooloose/nerdtree'
-  --  use 'scrooloose/nerdcommenter'
-  --  use 'airblade/vim-gitgutter'
-  --  use 'luochen1990/rainbow'
-  --  use 'valloric/youcompleteme'
-
+  use { 'windwp/nvim-autopairs', config = function () require("nvim-autopairs").setup {} end }
 
 end)

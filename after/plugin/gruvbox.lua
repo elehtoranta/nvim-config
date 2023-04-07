@@ -1,9 +1,8 @@
--- String italics? Wtf...
-require ('gruvbox').setup({
-  italic = {
-    strings = false
-  }
+require("gruvbox").setup({
+ italic = {
+   strings = false,
+ },
 })
 
 vim.o.background = 'dark'
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd("colorscheme gruvbox")

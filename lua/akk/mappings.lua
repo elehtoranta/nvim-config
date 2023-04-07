@@ -52,4 +52,15 @@ map('n', '<Leader>e', ':e<CR>')
 -- Source current file
 map('', '<Leader><Leader>', ':so %<CR>')
 
--- Resize windows
+-- Align cursor on inserting matching pairs
+map('i', '{}', '{}<Left>')
+map('i', '<>', '<><Left>')
+map('i', '()', '()<Left>')
+map('i', '[]', '[]<Left>')
+map('i', '\"\"', '\"\"<Left>')
+map('i', '\'\'', '\'\'<Left>')
+
+-- Copy to slow clipboard register '+' (C-v paste)
+map('v', '<C-c>', '\"+y')
+
+-- TODO Resize windows
