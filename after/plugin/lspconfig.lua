@@ -1,23 +1,26 @@
-require('mason').setup({
+-- Move to mason.lua
+require('mason-lspconfig').setup({
   ensure_installed = {
-    'rust-analyzer',
+    'rust_analyzer',
     'tsserver',
     'clangd',
   }
 })
 
--- Setup language servers.
+-- Setup language servers
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
-lspconfig.rust_analyzer.setup {
+lspconfig.clangd.setup{}
+lspconfig.pyright.setup{}
+lspconfig.tsserver.setup{}
+-- lspconfig.lua_ls.setup{} -- f this slow ass server
+lspconfig.rust_analyzer.setup{
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
     ['rust-analyzer'] = {},
   },
 }
 
-
+-- Just do ffs don't be lazyboi
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)

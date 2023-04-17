@@ -1,7 +1,6 @@
 local cmp = require('cmp')
 
-cmp.setup({
-
+cmp.setup {
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -24,14 +23,10 @@ cmp.setup({
 
   -- The order matters, i.e. completion sources are parsed in (this) order (:h cmp-config.sources)
   sources = cmp.config.sources ({
-    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
-  }, {
     { name = 'luasnip' },
   }, {
-    { name = 'path', keyword_length = 5 },
-    { name = 'cmdline', keyword_length = 5 },
-    { name = 'buffer', keyword_length = 5 },
+    { name = 'buffer' },
   }),
 
   experimental = {
@@ -44,5 +39,35 @@ cmp.setup({
       scrolloff = 5,
     }
   },
+}
 
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
 })
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require('lspconfig')['rust_analyzer'].setup {
+  capabilities = capabilities
+}
+require('lspconfig')['clangd'].setup {
+  capabilities = capabilities
+}
+require('lspconfig')['tsserver'].setup {
+  capabilities = capabilities
+}
+require('lspconfig')['pyright'].setup {
+  capabilities = capabilities
+}

@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
   use {
     'williamboman/mason.nvim', run = ':MasonUpdate',
     'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig', -- LSP preset configurations
+    'neovim/nvim-lspconfig' -- LSP preset configurations
   }
 
   -- Snip snip
@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
   -- Gifts from god
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
+  use { 'tpope/vim-commentary' }
 
   use { 'windwp/nvim-autopairs', config = function () require("nvim-autopairs").setup {} end }
 
