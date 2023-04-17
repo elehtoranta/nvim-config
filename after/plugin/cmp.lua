@@ -37,6 +37,7 @@ cmp.setup {
   window = {
     completion = {
       scrolloff = 5,
+      col_offset = 5,
     }
   },
 }
