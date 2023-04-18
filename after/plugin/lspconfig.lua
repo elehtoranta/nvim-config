@@ -19,6 +19,8 @@ lspconfig.rust_analyzer.setup{
     ['rust-analyzer'] = {},
   },
 }
+lspconfig.svelte.setup{}
+lspconfig.html.setup{}
 
 -- Just do ffs don't be lazyboi
 -- Global mappings.
