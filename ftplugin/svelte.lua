@@ -1,2 +1,2 @@
 vim.opt_local.shiftwidth = 2
-vim.cmd(':TSEnable highlight')
+vim.cmd(':TSEnable highlight indent')

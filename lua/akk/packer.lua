@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-commentary' }
 
-  -- use { 'windwp/nvim-autopairs', config = function () require("nvim-autopairs").setup {} end }
+  use { 'windwp/nvim-autopairs'}
+  use { 'windwp/nvim-ts-autotag'}
 
 end)

@@ -1,4 +1,5 @@
 -- Move to mason.lua
+require('mason').setup {}
 require('mason-lspconfig').setup({
   ensure_installed = {
     'rust_analyzer',
@@ -21,6 +22,7 @@ lspconfig.rust_analyzer.setup{
 }
 lspconfig.svelte.setup{}
 lspconfig.html.setup{}
+lspconfig.marksman.setup{}
 
 -- Just do ffs don't be lazyboi
 -- Global mappings.
