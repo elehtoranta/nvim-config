@@ -44,4 +44,6 @@ ls.add_snippets('javascript', {
 -- see: luasnip.filetype_extend. Extends table of filetypes
 -- on the rhs to buffers of filetype of lhs.
 ls.filetype_extend('typescript', {'javascript'})
+ls.filetype_extend('javascriptreact', {'javascript'})
+ls.filetype_extend('typescriptreact', {'javascript'})
 ls.filetype_extend('svelte', {'javascript', 'html'})
