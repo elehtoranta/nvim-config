@@ -38,6 +38,10 @@ ls.add_snippets('javascript', {
 
   s('clog', {
     t("console.log(\""), i(1, "desc"), t("\");")
+  }),
+
+  s('clogl', {
+    t("console.log(`"), i(1, "desc"), t("`);")
   })
 })
 
