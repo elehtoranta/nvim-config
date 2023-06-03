@@ -39,7 +39,11 @@ return require('packer').startup(function(use)
   }
 
   -- Snip snip
-  use ({'L3MON4D3/LuaSnip', tag = 'v<CurrentMajor>.*', run = 'make install_jsregexp'})
+  use ({
+    'L3MON4D3/LuaSnip',
+    tag = 'v<CurrentMajor>.*',
+    run = 'make install_jsregexp'
+  })
   use 'saadparwaiz1/cmp_luasnip'
 
   -- Gifts from god
