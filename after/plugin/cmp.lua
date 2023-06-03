@@ -76,3 +76,6 @@ require('lspconfig')['pyright'].setup {
 require('lspconfig')['lua_ls'].setup {
   capabilities = capabilities
 }
+require('lspconfig')['eslint'].setup {
+  capabilities = capabilities
+}
