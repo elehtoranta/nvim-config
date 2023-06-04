@@ -79,3 +79,6 @@ require('lspconfig')['lua_ls'].setup {
 require('lspconfig')['eslint'].setup {
   capabilities = capabilities
 }
+require('lspconfig')['cssls'].setup {
+  capabilities = capabilities
+}

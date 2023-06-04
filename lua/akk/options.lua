@@ -57,7 +57,7 @@ opt.updatetime = 50
 
 -- Length of wait between sequential map keystrokes
 opt.timeout = true
-opt.timeoutlen = 350
+opt.timeoutlen = 500
 
 -- Completion popup menu (pum) max height
 opt.pumheight = 10

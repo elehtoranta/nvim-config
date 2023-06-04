@@ -1,3 +1,5 @@
+local vim = vim
+
 -- Move to mason.lua
 require('mason').setup {}
 require('mason-lspconfig').setup({
@@ -39,7 +41,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
    callback = function(ev)
      -- Enable completion triggered by <c-x><c-o>
      vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
- 
+
      -- Buffer local mappings.
      -- See `:help vim.lsp.*` for documentation on any of the below functions
      local opts = { buffer = ev.buf }
