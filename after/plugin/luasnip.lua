@@ -45,6 +45,12 @@ ls.add_snippets('javascript', {
   })
 })
 
+ls.add_snippets('python', {
+  s('docstring', {
+    t("\"\"\""), i(1, "description"), t("\"\"\"")
+  })
+})
+
 -- see: luasnip.filetype_extend. Extends table of filetypes
 -- on the rhs to buffers of filetype of lhs.
 ls.filetype_extend('typescript', {'javascript'})
