@@ -25,6 +25,16 @@ local types = require("luasnip.util.types")
 local parse = require("luasnip.util.parser").parse_snippet
 local ms = ls.multi_snippet
 
+vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-N>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-P>", function() ls.jump(-1) end, {silent = true})
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
+
 ls.add_snippets('all', {
   s('ternary', {
     i(1, "condition"), t(" ? "), i(2, "then"), t(" : "), i(3, "else")
@@ -48,7 +58,14 @@ ls.add_snippets('javascript', {
 ls.add_snippets('python', {
   s('docstring', {
     t("\"\"\""), i(1, "description"), t("\"\"\"")
-  })
+  }),
+
+  s('class' , {
+    t("class "), i(1, "classname"), t(":")
+  }),
+
+  -- Docstring
+  --
 })
 
 -- see: luasnip.filetype_extend. Extends table of filetypes
