@@ -25,6 +25,9 @@ lspconfig.rust_analyzer.setup{
 lspconfig.svelte.setup{}
 lspconfig.html.setup{}
 lspconfig.marksman.setup{}
+lspconfig.hls.setup{
+  filetypes = {'haskell', 'lhaskell', 'cabal',}
+}
 
 -- Just do ffs don't be lazyboi
 -- Global mappings.

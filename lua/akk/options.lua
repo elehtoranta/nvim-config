@@ -63,6 +63,6 @@ opt.timeoutlen = 500
 opt.pumheight = 10
 
 -- Mark appropriate code width (e.g. PEP8, etc.).
--- opt.colorcolumn = {80}
+opt.colorcolumn = {80}
 -- Line color set in after/gruvbox.lua, after calling :colorscheme.
 

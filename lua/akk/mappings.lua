@@ -15,8 +15,12 @@ map('', '<C-W>', '<C-W>w')
 map('n', '<S-Tab>', ':bnext<CR>')
 
 -- Shift+[jk] to scroll with cursor vertically centered
-map('n', '<S-j>', 'jzz')
-map('n', '<S-k>', 'kzz')
+-- map('n', '<S-j>', 'jzz')
+-- map('n', '<S-k>', 'kzz') -- TODO Conflict with LSP/TS <S-K>: diagnostics
+--
+-- Scroll with cursor on first non-whitespace character of line.
+map('n', '<M-k>', '-')
+map('n', '<M-j>', '+')
 
 -- Close buffer
 map('n', '<leader>bb', ':bd<CR>')
@@ -64,3 +68,10 @@ map('i', '\'\'', '\'\'<Left>')
 map('v', '<C-c>', '\"+y')
 
 -- TODO Resize windows
+
+-- Bracket motions on non-first-column brackets. (Oddball syntax langs like
+-- Python still need special treatment)
+-- map('n', '[[', '?{<CR>w99[{')
+-- map('n', '][', '/}<CR>b99]}')
+-- map('n', ']]', 'j0[[%/{<CR>')
+-- map('n', '[]', 'k$][%?}<CR>')
