@@ -24,11 +24,12 @@ lspconfig.rust_analyzer.setup{
 }
 lspconfig.svelte.setup{}
 lspconfig.html.setup{}
-lspconfig.marksman.setup{}
+-- lspconfig.marksman.setup{}
 lspconfig.hls.setup{
   filetypes = {'haskell', 'lhaskell', 'cabal',}
 }
 lspconfig.sqlls.setup{}
+lspconfig.cmake.setup{}
 
 -- Just do ffs don't be lazyboi
 -- Global mappings.
