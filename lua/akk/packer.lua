@@ -38,6 +38,10 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig' -- LSP preset configurations
   }
 
+  -- DAP
+  -- use { 'mfussenegger/nvim-dap' }
+  -- TODO Install debug adapters and configure
+
   -- Snip snip
   use ({
     'L3MON4D3/LuaSnip',

@@ -28,6 +28,7 @@ lspconfig.marksman.setup{}
 lspconfig.hls.setup{
   filetypes = {'haskell', 'lhaskell', 'cabal',}
 }
+lspconfig.sqlls.setup{}
 
 -- Just do ffs don't be lazyboi
 -- Global mappings.

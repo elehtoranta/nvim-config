@@ -14,6 +14,11 @@ map('', '<C-W>', '<C-W>w')
 -- Switch between buffers with Leader + [jk]
 map('n', '<S-Tab>', ':bnext<CR>')
 
+-- Tab controls. Vim has next/previous tab (gt/gT) internally.
+map('n', '<leader>tt', ':tabnew<CR>')
+map('n', '<leader>tc', ':tabclose<CR>')
+-- map('n', '<leader>tf', ':tabfind $1') -- TODO, find and open file as tab
+
 -- Shift+[jk] to scroll with cursor vertically centered
 -- map('n', '<S-j>', 'jzz')
 -- map('n', '<S-k>', 'kzz') -- TODO Conflict with LSP/TS <S-K>: diagnostics
