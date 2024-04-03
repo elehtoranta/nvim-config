@@ -2,7 +2,7 @@
 local opt = vim.opt
 
 -- Enable syntax highlighting.
-vim.cmd('syn on')
+vim.cmd('syntax on')
 
 -- Line numbering as relative to current line.
 opt.number = true
@@ -66,3 +66,12 @@ opt.pumheight = 10
 opt.colorcolumn = {80}
 -- Line color set in after/gruvbox.lua, after calling :colorscheme.
 
+-- Netrw browser initial width
+vim.g.netrw_winsize = 20
+vim.g.netrw_keepdir = 0
+
+-- This shit is ackshually broken
+vim.opt.cdhome = false
+
+-- Taller help window
+-- vim.opt.helpheight = 60
