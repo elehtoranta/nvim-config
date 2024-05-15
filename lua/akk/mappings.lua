@@ -61,7 +61,7 @@ map('n', '<Leader>h', function ()
 end, {})
 
 -- Editing shorts
-map('n', '<Leader>qq', ':quit<CR>')
+map('n', '<Leader>q', ':quit<CR>')
 map('n', '<Leader>qa', ':qall<CR>')
 map('n', '<Leader>qw', ':wq<CR>')
 map('n', '<Leader>qs', ':xa<CR>') -- Write and quit all buffers

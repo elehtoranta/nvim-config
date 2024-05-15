@@ -13,6 +13,7 @@ opt.scrolloff = 10
 
 -- Smart-ish language agnostic indenting behaviour.
 opt.smartindent = true
+-- opt.cindent = true -- WTF
 
 -- Tabs expand to spaces
 opt.expandtab = true
