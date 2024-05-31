@@ -1,2 +1,0 @@
--- Config initialization
-require ('akk')
