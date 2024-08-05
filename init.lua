@@ -20,7 +20,7 @@ end)
 vim.keymap.set('n', '<leader>te', ':tabedit<CR>')
 
 vim.keymap.set('n', '<leader><leader>', ':source %<CR>') -- When building nvim config
-vim.cmd('colorscheme industry')
+vim.cmd('colorscheme retrobox')
 
 -- C LSP
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
@@ -34,3 +34,16 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
 	end
 })
 
+-- Experimental
+function lsp_factory(pattern, name, cmd, root_files)
+	vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+		pattern = pattern,
+		callback = function()
+			vim.lsp.start({
+				name = name,
+				cmd = cmd,
+				root_dir = vim.fs.root(0, root_files)
+			})
+		end
+	})
+end
