@@ -103,6 +103,7 @@ require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.pyright.setup{}
 -- require'lspconfig'.eslint.setup{}
 require'lspconfig'.cssls.setup { capabilities = capabilities, }
+require'lspconfig'.gopls.setup {}
 
 require 'erkka'
 EOF
