@@ -28,6 +28,8 @@ vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition)      -- Go to definiti
 vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation)  -- List implementation
 vim.keymap.set('n', '<leader>jt', vim.lsp.buf.type_definition) -- Jump to type
 vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)   -- Diagnostic float
+vim.keymap.set('n', '<leader>=', vim.lsp.buf.format)           -- Format
+
 
 -- Netrw
 vim.keymap.set('n', '<leader>ld', ':Lexplore<CR>') -- List directory

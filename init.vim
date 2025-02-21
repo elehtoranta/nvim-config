@@ -1,9 +1,12 @@
 call plug#begin()
 
+Plug 'nvim-treesitter/nvim-treesitter'
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -26,19 +29,15 @@ call plug#end()
 lua <<EOF
 
 require("nvim-autopairs").setup {}
+require("nvim-ts-autotag").setup {}
 
 -- Set up nvim-cmp.
 local cmp = require'cmp'
 
 cmp.setup({
 snippet = {
-	-- REQUIRED - you must specify a snippet engine
 	expand = function(args)
-	-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 	require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-	-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-	-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-	-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 	end,
 },
 window = {
@@ -50,14 +49,11 @@ mapping = cmp.mapping.preset.insert({
 ['<C-f>'] = cmp.mapping.scroll_docs(4),
 ['<C-Space>'] = cmp.mapping.complete(),
 ['<C-e>'] = cmp.mapping.abort(),
-['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+['<CR>'] = cmp.mapping.confirm({ select = true }),
 }),
 sources = cmp.config.sources({
 { name = 'nvim_lsp' },
--- { name = 'vsnip' }, -- For vsnip users.
 { name = 'luasnip' }, -- For luasnip users.
--- { name = 'ultisnips' }, -- For ultisnips users.
--- { name = 'snippy' }, -- For snippy users.
 }, {
 	{ name = 'buffer' },
 })
@@ -95,14 +91,13 @@ cmp.setup.cmdline(':', {
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['clangd'].setup {
-	capabilities = capabilities
-}
+require'lspconfig'.clangd.setup { capabilities = capabilities }
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.pyright.setup{}
--- require'lspconfig'.eslint.setup{}
-require'lspconfig'.cssls.setup { capabilities = capabilities, }
+require'lspconfig'.cssls.setup { capabilities = capabilities }
+require'lspconfig'.html.setup { capabilities = capabilities }
 require'lspconfig'.gopls.setup {}
 
 require 'erkka'
