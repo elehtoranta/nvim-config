@@ -23,3 +23,5 @@ vim.opt.listchars = { tab = '>-', trail = '~', leadmultispace = '-·-·' }
 vim.o.linebreak = true
 
 vim.g.netrw_liststyle = 3
+
+vim.g.copilot_enabled = false

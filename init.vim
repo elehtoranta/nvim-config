@@ -5,6 +5,8 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-ts-autotag'
 
@@ -15,13 +17,22 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" For vsnip users.
-"Plug 'hrsh7th/cmp-vsnip'
-"Plug 'hrsh7th/vim-vsnip'
-
 " For luasnip users.
- Plug 'L3MON4D3/LuaSnip'
- Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+" Telescope stuff
+Plug 'nvim-lua/plenary.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8'} " Don't run the latest master
+
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'esmuellert/nvim-eslint'
+
+" Copilot
+Plug 'github/copilot.vim'
 
 
 call plug#end()
@@ -68,7 +79,7 @@ sources = cmp.config.sources({
 { name = 'buffer' },
 })
 })
-require("cmp_git").setup() ]]-- 
+require("cmp_git").setup() ]]--
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
@@ -94,11 +105,42 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require'lspconfig'.clangd.setup { capabilities = capabilities }
-require'lspconfig'.lua_ls.setup{}
+-- require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.pyright.setup{}
-require'lspconfig'.cssls.setup { capabilities = capabilities }
-require'lspconfig'.html.setup { capabilities = capabilities }
+-- require'lspconfig'.cssls.setup { capabilities = capabilities }
+-- require'lspconfig'.html.setup { capabilities = capabilities }
 require'lspconfig'.gopls.setup {}
+require'lspconfig'.ts_ls.setup {}
+
+-- Telescope
+require('telescope').setup{
+  defaults = {
+    -- config_key = value,
+    mappings = {
+        i = {
+          ["<esc>"] = require('telescope.actions').close,
+        },
+    }
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+  },
+  extensions = {
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
+  }
+}
+
+require'nvim-eslint'.setup {}
 
 require 'erkka'
 EOF
