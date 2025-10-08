@@ -30,6 +30,8 @@ vim.keymap.set('n', '<leader>cd', ':cclose<CR>')
 vim.keymap.set('n', '<M-j>', 'jzz')
 vim.keymap.set('n', '<M-k>', 'kzz')
 
+vim.keymap.set('n', '<leader>ya', ':%y<CR>')
+
 -- LSP
 -- Replace with LspAttach event autocmd if errors
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)           -- ReName

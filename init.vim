@@ -104,13 +104,13 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require'lspconfig'.clangd.setup { capabilities = capabilities }
+vim.lsp.enable('clangd')
 -- require'lspconfig'.lua_ls.setup{}
-require'lspconfig'.pyright.setup{}
+vim.lsp.enable('pyright')
 -- require'lspconfig'.cssls.setup { capabilities = capabilities }
 -- require'lspconfig'.html.setup { capabilities = capabilities }
-require'lspconfig'.gopls.setup {}
-require'lspconfig'.ts_ls.setup {}
+vim.lsp.enable('gopls')
+vim.lsp.enable('ts_ls')
 
 -- Telescope
 require('telescope').setup{
