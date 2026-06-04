@@ -63,6 +63,13 @@ vim.keymap.set('n', '<leader>fm', ts.man_pages)
 vim.keymap.set('n', '<leader>fb', ts.current_buffer_fuzzy_find)
 vim.keymap.set('n', '<leader>fs', ts.git_status)
 vim.keymap.set('n', '<leader>fl', ts.buffers)
+-- Visual mode find word
+vim.keymap.set('v', '<leader>fw', function()
+    vim.cmd('normal! "zy')
+    local text = vim.fn.getreg('z')
+
+    ts.grep_string({ search = text })
+end, { desc = '[S]earch selected [W]ord (Visual)' })
 
 vim.keymap.set('n', '<leader>cp', function() vim.g.copilot_enabled = not vim.g.copilot_enabled; print(string.format("Copilot enabled: %s", vim.g.copilot_enabled)) end)
 
